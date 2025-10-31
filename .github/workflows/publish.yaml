@@ -1,0 +1,24 @@
+name: Spaceflake Dart CI (Publish)
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: pubdev_spaceflake
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+      - name: Install dependencies
+        run: dart pub get
+      - name: Publish
+        run: dart pub publish --force

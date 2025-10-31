@@ -1,0 +1,25 @@
+name: Spaceflake Dart CI (Lint, Analyze & Test)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint_analyze_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+      - name: Install dependencies
+        run: dart pub get
+      - name: Check code formatting
+        run: dart format --output=none --set-exit-if-changed .
+      - name: Run static analysis
+        run: dart analyze
+      - name: Run tests
+        run: dart test

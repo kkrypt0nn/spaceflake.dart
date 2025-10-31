@@ -1,0 +1,15 @@
+name: spaceflake
+description: A distributed generator to create unique IDs with ease in Dart; inspired by Twitter's Snowflake
+version: 1.0.0
+repository: https://github.com/kkrypt0nn/spaceflake.dart
+issue_tracker: https://github.com/kkrypt0nn/spaceflake.dart/issues
+funding:
+  - https://github.com/sponsors/kkrypt0nn
+  - https://buymeacoffee.com/kkrypt0nn
+
+environment:
+  sdk: ^3.9.2
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.6
